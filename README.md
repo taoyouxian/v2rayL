@@ -44,40 +44,64 @@ v2ray linux 客户端，使用pyqt5编写GUI界面，核心基于v2ray-core(v2ra
 
 ## 使用前请注意
 
-**所有命令请直接运行，避免导致出现权限问题**
+**实测没有问题，可以点个Star，谢谢**
 
 **所有命令请直接运行，避免导致出现权限问题**
 
-使用脚本安装时下载的程序实在`ubuntu 18.04` + `Python3.6`的环境下打包的，因此在Python版本不一致的环境中可能会出现版本不兼容的问题
+使用脚本安装时下载的程序是在`ubuntu18.04+Python3.6`的环境下打包的，实测环境是`ubuntu 16.04` + `Python3.5.2`，因此在Python版本不一致的环境中可能会出现版本不兼容的问题，可适当google或者baidu解决。
 
 解决方法(请先运行安装脚本)：
 
-在自己的电脑上重新打包程序，具体方法如下（参考）
+环境工作：
+1. `pip -V`需要确保此时的pip对应的位置是在python3下，否则下面步骤2使用pip3
+2. 为了加快pip库的安装，送上小神器，`mkdir ~/.pip && vim ~/.pip/pip.conf`，添加内容如下，可以直接去镜像中下载库，实测非常快
+```
+[global]
+index-url = https://pypi.tuna.tsinghua.edu.cn/simple
+```
+3. 安装库时候，可以使用`--user`来解决一些权限问题，如步骤2中`pip install -r requirements.txt --user`
+
+- 正式安装步骤：
 1. 运行`git clone https://github.com/jiangxufeng/v2rayL.git`
 2. 进入项目文件夹，然后运行`pip install -r requirements.txt`
 3. 运行`cd v2rayL-GUI && pyinstaller -F v2rayLui.py -p config.py -p sub2conf_api.py -p v2rayL_api.py -p v2rayL_threads.py -p utils.py -i images/logo.ico -n v2rayLui`
-4. 打包后运行`mv dist/v2rayLui /usr/bin/v2rayL/v2rayLui` 替换安装时下载的程序
+4. 运行`bash <(curl -s -L http://dl.thinker.ink/install.sh)` 来安装v2rayLui
+5. 运行`mv dist/v2rayLui /usr/bin/v2rayL/v2rayLui` 替换安装时下载的程序
+6. 此时在Ubuntu的应用程序中可以搜索`V2rayL`程序，打开后在`配置订阅`添加你的`vmess：//`账号信息
 
-## 安装
+- 使用步骤：
+1. 安装SwitchyOmega负责代理，解压`SwitchyOmega_Chromium.zip`
+2. 打开网址`chrome://extensions/`，开启右上角`开发者模式`->`加载已解压的扩展程序`->`选择SwitchyOmega_Chromium文件夹`
+3. 对`SwitchyOmega`进行安装设置，操作步骤如：`安装插件——新建情景模式——选择代理服务器——代理协议SOCKS5——代理服务器：127.0.0.1——代理端口：1080——应用选项`
+
+- 测试：
+1. 打开google搜索之后，如果访问无效，在网址导航栏中选择之前新建的`情景模式`
+2. 根据自己需要，在`SwitchyOmega`中配置其他情景模式
+
+- 参考：
+1. [解决Chrome插件安装时出现的“程序包无效”问题](https://blog.csdn.net/sinat_37320521/article/details/89327330)
+2. [SwitchyOmega的安装设置](https://www.cnblogs.com/LyndonMario/p/9326176.html)
+3. [谷歌浏览器插件SwitchyOmega使用教程](https://www.qcgzxw.cn/2988.html)
+
+## v2rayLui 相关
+- 安装
 ```
 bash <(curl -s -L http://dl.thinker.ink/install.sh)
 ```
-
-## 更新
+- 更新
 ``` bash
 bash <(curl -s -L http://dl.thinker.ink/update.sh)
 ```
-
-## 卸载
+- 卸载
 ``` bash
 bash <(curl -s -L http://dl.thinker.ink/uninstall.sh)
 ```
 
 # 展示
 
-![首页](http://cloud.thinker.ink/download/a043a08860f239f8d0cbeb2dc2a5b6d5.png)
+![配置账号](http://cloud.thinker.ink/images/617ce660cc4a2a22bd275d73d0d7c616.png)
 
-![setting1](http://cloud.thinker.ink/images/617ce660cc4a2a22bd275d73d0d7c616.png)
+![首页](http://cloud.thinker.ink/download/a043a08860f239f8d0cbeb2dc2a5b6d5.png)
 
 ![setting2](http://cloud.thinker.ink/images/8835526765d479143879c08fe1ecb8a4.png)
 
