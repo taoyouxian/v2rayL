@@ -40,11 +40,12 @@ v2ray linux 客户端，使用pyqt5编写GUI界面，核心基于v2ray-core(v2ra
 解决办法：在测试时发现多尝试启动几次(关闭，开启)或重启程序就可以正常使用
 
 后续会进一步深入优化这个问题，透明代理无法使用时可以关闭，不影响其正常使用
-# 使用
 
-## 使用前请注意
+# 安装与使用
 
-**实测没有问题，可以点个Star，谢谢**
+## 安装前请注意
+
+**实测没有问题，可以在仓库上方点个星星Star，谢谢**
 
 **所有命令请直接运行，避免导致出现权限问题**
 
@@ -53,7 +54,7 @@ v2ray linux 客户端，使用pyqt5编写GUI界面，核心基于v2ray-core(v2ra
 解决方法(请先运行安装脚本)：
 
 环境工作：
-1. `pip -V`需要确保此时的pip对应的位置是在python3下，否则下面步骤2使用pip3
+1. `pip -V`需要确保此时的pip对应的位置是在python3下，否则下面`正式安装步骤-步骤2-使用 pip3 install`
 2. 为了加快pip库的安装，送上小神器，`mkdir ~/.pip && vim ~/.pip/pip.conf`，添加内容如下，可以直接去镜像中下载库，实测非常快
 ```
 [global]
@@ -62,23 +63,24 @@ index-url = https://pypi.tuna.tsinghua.edu.cn/simple
 3. 安装库时候，可以使用`--user`来解决一些权限问题，如步骤2中`pip install -r requirements.txt --user`
 
 - 正式安装步骤：
-1. 运行`git clone https://github.com/jiangxufeng/v2rayL.git`
+1. 运行`git clone https://github.com/taoyouxian/v2rayL.git`
 2. 进入项目文件夹，然后运行`pip install -r requirements.txt`
 3. 运行`cd v2rayL-GUI && pyinstaller -F v2rayLui.py -p config.py -p sub2conf_api.py -p v2rayL_api.py -p v2rayL_threads.py -p utils.py -i images/logo.ico -n v2rayLui`
 4. 运行`bash <(curl -s -L http://dl.thinker.ink/install.sh)` 来安装v2rayLui
 5. 运行`mv dist/v2rayLui /usr/bin/v2rayL/v2rayLui` 替换安装时下载的程序
-6. 此时在Ubuntu的应用程序中可以搜索`V2rayL`程序，打开后在`配置订阅`添加你的`vmess：//`账号信息
+6. 此时在Ubuntu的应用程序中可以搜索`V2rayL`程序，打开后在`配置订阅`添加你的`vmess：//`账号信息，界面如下`效果展示`所示
 
 - 使用步骤：
 1. 安装SwitchyOmega负责代理，解压`SwitchyOmega_Chromium.zip`
 2. 打开网址`chrome://extensions/`，开启右上角`开发者模式`->`加载已解压的扩展程序`->`选择SwitchyOmega_Chromium文件夹`
 3. 对`SwitchyOmega`进行安装设置，操作步骤如：`安装插件——新建情景模式——选择代理服务器——代理协议SOCKS5——代理服务器：127.0.0.1——代理端口：1080——应用选项`
+4. 如有疑问，可以查看`参考链接`来进行其他方面的学习与了解
 
 - 测试：
 1. 打开google搜索之后，如果访问无效，在网址导航栏中选择之前新建的`情景模式`
 2. 根据自己需要，在`SwitchyOmega`中配置其他情景模式
 
-- 参考：
+- 参考链接：
 1. [解决Chrome插件安装时出现的“程序包无效”问题](https://blog.csdn.net/sinat_37320521/article/details/89327330)
 2. [SwitchyOmega的安装设置](https://www.cnblogs.com/LyndonMario/p/9326176.html)
 3. [谷歌浏览器插件SwitchyOmega使用教程](https://www.qcgzxw.cn/2988.html)
@@ -97,7 +99,7 @@ bash <(curl -s -L http://dl.thinker.ink/update.sh)
 bash <(curl -s -L http://dl.thinker.ink/uninstall.sh)
 ```
 
-# 展示
+# 效果展示
 
 ![配置账号](http://cloud.thinker.ink/images/617ce660cc4a2a22bd275d73d0d7c616.png)
 
